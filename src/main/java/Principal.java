@@ -1,11 +1,6 @@
 
 import java.util.Scanner;
 
-/**
- * Calcula o n-ésimo termo da sequência de Fibonacci.
- *
- * A sequência começa em F(0) = 0 e F(1) = 1.
- */
 public class Principal {
 
     public static void main(String[] args) {
@@ -13,31 +8,23 @@ public class Principal {
         // Variáveis
         Scanner entrada = new Scanner(System.in);
         int n;
-        long anterior = 0;
-        long atual = 1;
-        long proximo;
+        int anterior = 1;
+        int atual = 0;
+        int proximo;
 
-        // Entrada
-        System.out.print("Informe a posicao n da sequencia de Fibonacci: ");
+        System.out.println("Qual o termo você deseja:");
         n = entrada.nextInt();
 
-        // Processamento
-        if (n < 0) {
-            System.out.println("Erro: informe um numero inteiro nao negativo.");
-        } else {
-            if (n == 0) {
-                atual = 0;
-                System.out.println("F(" + n + ") = " + atual);
-            } else {                
-                for (int i = 2; i <= n; i++) {
-                    proximo = atual + anterior;
-                    anterior = atual;
-                    atual = proximo;
-                }
-                // Saída
-                System.out.println("F(" + n + ") = " + atual);
-            }
+        int i = 1;
+        while (i < n) {
+            proximo = anterior + atual;
+            anterior = atual;
+            atual = proximo;
+            i = i + 1;
         }
+        //Saída
+        System.out.println("O termo é :" + atual);
+
         entrada.close();
     }
 }
